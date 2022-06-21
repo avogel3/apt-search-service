@@ -28,5 +28,18 @@ class ScrapedFloorPlan
     raise NotImplementedError
   end
 
-  def save!; end
+  def community
+    raise NotImplementedError
+  end
+
+  def to_h
+    {
+      price: price,
+      name: name,
+      beds: beds,
+      baths: baths,
+      available_at: available_at,
+      community: community
+    }
+  end
 end

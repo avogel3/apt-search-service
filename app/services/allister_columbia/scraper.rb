@@ -1,11 +1,5 @@
-class AllisterColumbia::Scraper
-  attr_reader :move_in_date
-
-  def initialize(move_in_date)
-    @move_in_date = Date.strptime(move_in_date, '%m/%d/%Y')
-  end
-
-  def call
+class AllisterColumbia::Scraper < Scraper
+  def scrape!
     res = Net::HTTP.get_response(scrape_url)
     return [] unless res.is_a?(Net::HTTPSuccess)
 

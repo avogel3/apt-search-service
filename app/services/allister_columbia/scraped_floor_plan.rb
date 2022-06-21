@@ -24,6 +24,13 @@ class AllisterColumbia::ScrapedFloorPlan < ScrapedFloorPlan
   end
 
   def available_at
-    at('[data-class=check-availability]').text.strip
+    available_text = at('[data-class=check-availability]').text.strip
+    return Date.today if available_text == 'Only One Left!'
+
+    available_text
+  end
+
+  def community
+    'Allister Columbia'
   end
 end

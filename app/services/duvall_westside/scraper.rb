@@ -1,11 +1,5 @@
-class DuvallWestside::Scraper
-  attr_reader :mechanize
-
-  def initialize
-    @mechanize = Mechanize.new
-  end
-
-  def call(move_in_date)
+class DuvallWestside::Scraper < Scraper
+  def scrape!
     page = mechanize.get('https://www.duvallwestside.com/floorplans')
 
     filter_form = page.forms.find { |form| form.action == '/availableunits' }
@@ -15,5 +9,11 @@ class DuvallWestside::Scraper
     page.css('.fp-container').map do |fp|
       DuvallWestside::ScrapedFloorPlan.new(fp, move_in_date)
     end
+  end
+
+  private
+
+  def mechanize
+    @mechanize ||= Mechanize.new
   end
 end

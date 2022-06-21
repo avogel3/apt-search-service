@@ -19,6 +19,10 @@ class DuvallWestside::ScrapedFloorPlan < ScrapedFloorPlan
     metadata.find { |d| d.include?('Sq.Ft.') }
   end
 
+  def community
+    'Duvall Westside'
+  end
+
   alias available_at move_in_date
 
   private
