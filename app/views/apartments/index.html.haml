@@ -1,0 +1,16 @@
+%h1.text-2xl Apartments
+
+.flex-col
+  %ul
+    - floor_plans.each do |fp|
+      %li.bg-white.mt-2.p-4
+        .flex
+          .flex.flex-col.justify-center.items-center.mr-4
+            %strong= number_to_currency(fp.price_as_number, precision: 0)
+          .flex.flex-col.flex-1
+            .flex.justify-between.items-center
+              %strong.text-md= fp.name
+              %span.text-slate-300.text-xs
+                = "#{distance_of_time_in_words_to_now(fp.updated_at)} ago"
+            .flex.text-slate-400.text-sm
+              = fp.community

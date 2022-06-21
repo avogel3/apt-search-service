@@ -1,24 +1,35 @@
-# README
+Apt Search Service
+===
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A service that checks apartment community websites for their up to date listing, availability and prices. Utilizes the Mechanize and Nokogiri libaries for webscraping
 
-Things you may want to cover:
+## Project Setup
 
-* Ruby version
+### Install Depedencies
 
-* System dependencies
+```sh
+asdf install ruby 3.0.1
+gem install bundler
+bundle install
+```
 
-* Configuration
+### Create/Migrate the Database
 
-* Database creation
+```sh
+bundle exec rails db:create db:migrate
+```
 
-* Database initialization
+### Start the Development Server
 
-* How to run the test suite
+```sh
+gem install foreman
 
-* Services (job queues, cache servers, search engines, etc.)
+# optionally reshim if needed
+asdf reshim ruby
 
-* Deployment instructions
+foreman start -f Procfile.dev
+```
 
-* ...
+The server should now be running on `http://localhost:3005`
+
+##### github.com/avogel3
