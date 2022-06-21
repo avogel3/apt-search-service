@@ -1,0 +1,46 @@
+class AllisterColumbia::FloorPlan
+  attr_reader :floor_plan_document, :move_in_date
+
+  def initialize(floor_plan_document, move_in_date)
+    @floor_plan_document = floor_plan_document
+    @move_in_date = move_in_date
+  end
+
+  def name
+    at('.fp-name-link').text.strip
+  end
+
+  def price
+    at('.rent').text.strip.split(' ').find { |text| text.include?('$') }
+  end
+
+  def beds
+    at('[itemprop="numberOfBedrooms"]').attributes['content'].value
+  end
+
+  def baths
+    at('[itemprop="numberOfBathroomsTotal"]').attributes['content'].value
+  end
+
+  def sq_ft
+    el_text = at('.sq-feet').text.strip
+    matches = el_text.match(/\d+/)[0]
+    return matches[0] if !!matches
+
+    el_text
+  end
+
+  def available_at
+    at('[data-class=check-availability]').text.strip
+  end
+
+  private
+
+  def at(*args)
+    floor_plan_document.at(*args)
+  end
+
+  def css(*args)
+    floor_plan_document.css(*args)
+  end
+end
