@@ -12,7 +12,7 @@ class AllisterColumbia::Scraper
     page = Nokogiri::HTML(res.body)
 
     page.css('li.fp-group-item').map do |fp|
-      AllisterColumbia::FloorPlan.new(fp, move_in_date)
+      AllisterColumbia::ScrapedFloorPlan.new(fp, move_in_date)
     end
   end
 

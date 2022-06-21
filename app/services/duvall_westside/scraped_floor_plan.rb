@@ -1,11 +1,4 @@
-class DuvallWestside::ScrapedFloorPlan
-  attr_reader :floor_plan_document, :move_in_date
-
-  def initialize(floor_plan_document, move_in_date)
-    @floor_plan_document = floor_plan_document
-    @move_in_date = move_in_date
-  end
-
+class DuvallWestside::ScrapedFloorPlan < ScrapedFloorPlan
   def name
     at('.card-title').text.strip
   end
@@ -29,14 +22,6 @@ class DuvallWestside::ScrapedFloorPlan
   alias available_at move_in_date
 
   private
-
-  def at(*args)
-    floor_plan_document.at(*args)
-  end
-
-  def css(*args)
-    floor_plan_document.css(*args)
-  end
 
   def metadata
     css('ul > li').map(&:text).map(&:strip)

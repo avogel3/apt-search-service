@@ -1,11 +1,4 @@
-class AllisterColumbia::FloorPlan
-  attr_reader :floor_plan_document, :move_in_date
-
-  def initialize(floor_plan_document, move_in_date)
-    @floor_plan_document = floor_plan_document
-    @move_in_date = move_in_date
-  end
-
+class AllisterColumbia::ScrapedFloorPlan < ScrapedFloorPlan
   def name
     at('.fp-name-link').text.strip
   end
@@ -32,15 +25,5 @@ class AllisterColumbia::FloorPlan
 
   def available_at
     at('[data-class=check-availability]').text.strip
-  end
-
-  private
-
-  def at(*args)
-    floor_plan_document.at(*args)
-  end
-
-  def css(*args)
-    floor_plan_document.css(*args)
   end
 end
