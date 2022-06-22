@@ -92,11 +92,17 @@ GEM
       reline (>= 0.2.7)
     decent_exposure (3.0.4)
       activesupport (>= 4.0)
+    diff-lcs (1.5.0)
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     erubis (2.7.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
     globalid (1.0.0)
@@ -216,6 +222,23 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-rails (6.0.0.rc1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.11)
+      rspec-expectations (~> 3.11)
+      rspec-mocks (~> 3.11)
+      rspec-support (~> 3.11)
+    rspec-support (3.11.0)
     ruby_parser (3.19.1)
       sexp_processor (~> 4.16)
     rubyntlm (0.6.3)
@@ -283,6 +306,7 @@ DEPENDENCIES
   capybara
   debug
   decent_exposure (~> 3.0)
+  factory_bot_rails
   font-awesome-rails
   haml-rails
   importmap-rails
@@ -291,6 +315,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.1)
+  rspec-rails (= 6.0.0.rc1)
   selenium-webdriver
   sprockets-rails
   stimulus-rails
