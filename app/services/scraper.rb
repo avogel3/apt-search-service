@@ -17,7 +17,15 @@ class Scraper
         results.map(&:to_h),
         unique_by: %i[name community]
       )
+      audit!(success: true)
       puts "#{upserted.count} floor plans updated"
     end
+  rescue StandardError => e
+    audit!(success: false)
+    raise e
+  end
+
+  def audit!(success:)
+    ScrapeEvent.new(success: success, scraper: self.class.name).save!
   end
 end

@@ -22,3 +22,7 @@
 every 10.minutes do
   rake 'scrape:start'
 end
+
+every 3.days do
+  rake 'scrape:prune_old_events'
+end
