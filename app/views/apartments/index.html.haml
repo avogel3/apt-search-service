@@ -6,6 +6,7 @@
       - floor_plans.each do |fp|
         %li.bg-white.mt-2.p-4
           .flex
+            = listing_status_indicator(fp)
             .flex.flex-col.justify-center.items-center.mr-4
               %strong= number_to_currency(fp.price, precision: 0)
             .flex.flex-col.flex-1
