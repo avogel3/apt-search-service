@@ -1,7 +1,7 @@
 Apt Search Service
 ===
 
-A service that checks apartment community websites for their up to date listing, availability and prices. Utilizes the Mechanize and Nokogiri libaries for webscraping
+A service that checks apartment community websites for their up to date listings, availability and prices. Utilizes the Mechanize and Nokogiri libaries for webscraping
 
 ## Project Setup
 
@@ -24,10 +24,7 @@ bundle exec rails db:create db:migrate
 ```sh
 gem install foreman
 
-# optionally reshim if needed
-asdf reshim ruby
-
-foreman start -f Procfile.dev
+bin/dev
 ```
 
 The server should now be running on `http://localhost:3005`
