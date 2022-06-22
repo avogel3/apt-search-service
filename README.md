@@ -32,4 +32,21 @@ foreman start -f Procfile.dev
 
 The server should now be running on `http://localhost:3005`
 
+### Scraping Data
+
+If you're forking/running this project, you should update the `target_date` inside the `scrape:start` task so that it runs properly and additionally add any scrapers that you want there.
+
+```sh
+rake scrape:start
+```
+
+### Job Scheduling
+
+I'm using `whenever` to run a task that calls the scrapers. The schedule is in `config/schedule.rb`. Then you'll need to update your crontab:
+
+```sh
+bundle exec whenever --update-crontab
+```
+
+
 ##### github.com/avogel3
