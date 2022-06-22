@@ -5,7 +5,7 @@ ruby '3.0.1'
 
 gem 'bootsnap', require: false
 gem 'decent_exposure', '~> 3.0'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'importmap-rails'
 gem 'mechanize', '~> 2.8'
@@ -17,6 +17,7 @@ gem 'stimulus-rails'
 gem 'tailwindcss-rails', '~> 2.0'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'whenever'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
