@@ -96,6 +96,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     erubis (2.7.0)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     haml (5.2.2)
@@ -273,6 +275,7 @@ DEPENDENCIES
   capybara
   debug
   decent_exposure (~> 3.0)
+  font-awesome-rails
   haml-rails
   importmap-rails
   mechanize (~> 2.8)

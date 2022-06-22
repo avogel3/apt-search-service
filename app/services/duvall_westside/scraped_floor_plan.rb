@@ -4,19 +4,19 @@ class DuvallWestside::ScrapedFloorPlan < ScrapedFloorPlan
   end
 
   def price
-    at('.font-weight-bold.mb-1.text-md').text.strip.split(' ').find { |text| text.include?('$') }
+    only_digits(at('.font-weight-bold.mb-1.text-md').text.strip.split(' ').find { |text| text.include?('$') })
   end
 
   def beds
-    metadata.find { |d| d.include?('Bed') }
+    only_digits(metadata.find { |d| d.include?('Bed') })
   end
 
   def baths
-    metadata.find { |d| d.include?('Bath') }
+    only_digits(metadata.find { |d| d.include?('Bath') })
   end
 
   def sq_ft
-    metadata.find { |d| d.include?('Sq.Ft.') }
+    only_digits(metadata.find { |d| d.include?('Sq.Ft.') })
   end
 
   def community

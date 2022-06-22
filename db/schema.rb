@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_21_142337) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_22_001338) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "floor_plans", force: :cascade do |t|
     t.string "name", null: false
     t.string "community", null: false
-    t.string "beds"
-    t.string "baths"
-    t.string "price"
+    t.integer "beds"
+    t.integer "baths"
+    t.integer "price"
     t.date "available_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sq_ft"
     t.index ["name", "community"], name: "index_floor_plans_on_name_and_community", unique: true
   end
 

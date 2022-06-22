@@ -5,6 +5,7 @@ ruby '3.0.1'
 
 gem 'bootsnap', require: false
 gem 'decent_exposure', '~> 3.0'
+gem "font-awesome-rails"
 gem 'haml-rails'
 gem 'importmap-rails'
 gem 'mechanize', '~> 2.8'

@@ -32,6 +32,10 @@ class ScrapedFloorPlan
     raise NotImplementedError
   end
 
+  def sq_ft
+    raise NotImplementedError
+  end
+
   def to_h
     {
       price: price,
@@ -39,7 +43,15 @@ class ScrapedFloorPlan
       beds: beds,
       baths: baths,
       available_at: available_at,
-      community: community
+      community: community,
+      sq_ft: sq_ft,
+      updated_at: Time.now.utc
     }
+  end
+
+  protected
+
+  def only_digits(string_val)
+    (string_val || '').gsub(/\D+/, '')
   end
 end

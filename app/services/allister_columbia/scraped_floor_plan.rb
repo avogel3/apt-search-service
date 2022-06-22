@@ -4,23 +4,19 @@ class AllisterColumbia::ScrapedFloorPlan < ScrapedFloorPlan
   end
 
   def price
-    at('.rent').text.strip.split(' ').find { |text| text.include?('$') }
+    only_digits(at('.rent').text.strip.split(' ').find { |text| text.include?('$') })
   end
 
   def beds
-    at('[itemprop="numberOfBedrooms"]').attributes['content'].value
+    only_digits(at('[itemprop="numberOfBedrooms"]').attributes['content'].value)
   end
 
   def baths
-    at('[itemprop="numberOfBathroomsTotal"]').attributes['content'].value
+    only_digits(at('[itemprop="numberOfBathroomsTotal"]').attributes['content'].value)
   end
 
   def sq_ft
-    el_text = at('.sq-feet').text.strip
-    matches = el_text.match(/\d+/)[0]
-    return matches[0] if !!matches
-
-    el_text
+    only_digits(at('.sq-feet > .fp-col-text').text.strip)
   end
 
   def available_at

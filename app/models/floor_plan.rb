@@ -1,8 +1,5 @@
 class FloorPlan < ApplicationRecord
   validates :name, :community, presence: true
   validates :name, uniqueness: { scope: :community }
-
-  def price_as_number
-    price.gsub(/\D+/, '')
-  end
+  validates :baths, :beds, :price, :sq_ft, numericality: true, only_integer: { true }
 end
