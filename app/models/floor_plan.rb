@@ -6,7 +6,7 @@ class FloorPlan < ApplicationRecord
   def listing_status
     if updated_at <= 12.hours.ago
       :unavailable
-    elsif updated_at == created_at
+    elsif created_at.today?
       :new
     else
       :available
