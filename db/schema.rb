@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_23_022601) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_23_031302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_23_022601) do
     t.index ["name", "community"], name: "index_floor_plans_on_name_and_community", unique: true
   end
 
+  create_table "price_histories", force: :cascade do |t|
+    t.integer "price"
+    t.bigint "floor_plan_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["floor_plan_id"], name: "index_price_histories_on_floor_plan_id"
+    t.index ["price"], name: "index_price_histories_on_price"
+  end
+
   create_table "scrape_events", force: :cascade do |t|
     t.boolean "success", default: false, null: false
     t.string "scraper", null: false
@@ -35,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_23_022601) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "price_histories", "floor_plans"
 end

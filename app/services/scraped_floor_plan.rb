@@ -40,7 +40,6 @@ class ScrapedFloorPlan
 
   def to_h
     {
-      price: price,
       name: name,
       beds: beds,
       baths: baths,
