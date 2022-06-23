@@ -29,4 +29,8 @@ class AllisterColumbia::ScrapedFloorPlan < ScrapedFloorPlan
   def community
     'Allister Columbia'
   end
+
+  def listing_link
+    at("a[title='View More Information']")&.attributes&.dig('href')&.value
+  end
 end

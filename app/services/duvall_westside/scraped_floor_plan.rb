@@ -25,6 +25,13 @@ class DuvallWestside::ScrapedFloorPlan < ScrapedFloorPlan
 
   alias available_at move_in_date
 
+  def listing_link
+    path = at('a[name=applynow]')&.attributes&.dig('href')&.value
+    return unless path.present?
+
+    ['https://www.duvallwestside.com', path].join
+  end
+
   private
 
   def metadata

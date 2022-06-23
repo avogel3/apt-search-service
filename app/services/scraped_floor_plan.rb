@@ -36,6 +36,8 @@ class ScrapedFloorPlan
     raise NotImplementedError
   end
 
+  def listing_link; end
+
   def to_h
     {
       price: price,
@@ -45,6 +47,7 @@ class ScrapedFloorPlan
       available_at: available_at,
       community: community,
       sq_ft: sq_ft,
+      listing_link: listing_link,
       updated_at: Time.now.utc
     }
   end
