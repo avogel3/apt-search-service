@@ -1,0 +1,16 @@
+- sorted_price_history = price_history.sort_by(&:price)
+= content_tag("strong", "Current Price - #{format_price(sorted_price_history.first.price)}", class: "text-center")
+
+- if price_history.length > 1
+  %hr.my-2
+  %table.table-auto
+    %thead
+      %th Price
+      %th Updated At
+    %tbody.text-slate-600
+      - # reverse! for speed boost https://stackoverflow.com/a/2651028
+      - price_history.sort_by(&:updated_at).reverse!.each do |ph|
+        %tr
+          %td.text-center= format_price(ph.price)
+          %td.text-center= pretty_format_datetime(ph.updated_at)
+
