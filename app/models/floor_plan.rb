@@ -1,6 +1,6 @@
 class FloorPlan < ApplicationRecord
   has_many :price_histories
-  has_one :current_price_data, -> { order(created_at: :asc) }, class_name: 'PriceHistory'
+  has_one :current_price_data, -> { order(updated_at: :asc) }, class_name: 'PriceHistory'
 
   validates :name, :community, presence: true
   validates :name, uniqueness: { scope: :community }
