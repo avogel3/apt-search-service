@@ -24,6 +24,8 @@ class Scraper
           fp_id = upserted_record['id']
           next unless fp.price.present?
 
+          # FIXME: this can cause an issue if a price changes but then returns to the same price later on
+          # IE, we could lose out on the date(s) of that price
           ph = PriceHistory.find_or_create_by(floor_plan_id: fp_id, price: fp.price)
           ph.touch unless ph.new_record?
         end
