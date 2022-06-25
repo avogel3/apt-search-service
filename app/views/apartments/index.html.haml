@@ -5,35 +5,34 @@
     - floor_plans.group_by(&:community).each do |community, floor_plans|
       .my-8
         %h3.font-bold.text-lg=community
-        - floor_plans.group_by(&:beds).each do |beds_count, floor_plans|
+        - floor_plans.sort_by(&:price).each do |fp|
           %ul
-            - floor_plans.sort_by(&:price).each do |fp|
-              %li.bg-white.mt-2.p-4
-                = link_to floor_plan_path(fp) do
-                  .flex
-                    = listing_status_indicator(fp)
-                    .flex.flex-col.justify-center.items-center.mr-4
-                      %strong= format_price(fp.price)
-                    .flex.flex-col.flex-1
-                      .flex.justify-between.items-center
-                        %strong.text-md= fp.name
-                        %span.text-slate-300.text-xs
-                          = "#{distance_of_time_in_words_to_now(fp.updated_at)} ago"
-                      .flex.text-slate-400.text-sm.mb-2.mt-1
-                        = fp.community
-                      .flex.text-slate-400.text-xs.space-evenly
-                        %span.mr-2
-                          = fp.beds
-                          Bed
-                          = fa_icon "bed"
-                        %span.mr-2
-                          = fp.baths
-                          Bath
-                          = fa_icon "bath"
-                        %span.mr-2
-                          = fp.sq_ft
-                          Sq.Ft.
-                          = fa_icon "map"
+            %li.bg-white.mt-2.p-4
+              = link_to floor_plan_path(fp) do
+                .flex
+                  = listing_status_indicator(fp)
+                  .flex.flex-col.justify-center.items-center.mr-4
+                    %strong= format_price(fp.price)
+                  .flex.flex-col.flex-1
+                    .flex.justify-between.items-center
+                      %strong.text-md= fp.name
+                      %span.text-slate-300.text-xs
+                        = "#{distance_of_time_in_words_to_now(fp.updated_at)} ago"
+                    .flex.text-slate-400.text-sm.mb-2.mt-1
+                      = fp.community
+                    .flex.text-slate-400.text-xs.space-evenly
+                      %span.mr-2
+                        = fp.beds
+                        Bed
+                        = fa_icon "bed"
+                      %span.mr-2
+                        = fp.baths
+                        Bath
+                        = fa_icon "bath"
+                      %span.mr-2
+                        = fp.sq_ft
+                        Sq.Ft.
+                        = fa_icon "map"
 - else
   .flex.flex-col.justify-center.items-center.text-xl.text-slate-600.mt-32
     = fa_icon "frown-o"
