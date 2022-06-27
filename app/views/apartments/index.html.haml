@@ -18,8 +18,11 @@
                       %strong.text-md= fp.name
                       %span.text-slate-300.text-xs
                         = "#{distance_of_time_in_words_to_now(fp.updated_at)} ago"
-                    .flex.text-slate-400.text-sm.mb-2.mt-1
-                      = fp.community
+                    .flex.text-slate-400.text-sm.mb-2.mt-1.justify-between
+                      %div= fp.community
+                      %div
+                        - if fp.price_histories.count > 1
+                          %span.text-green-500 $$$
                     .flex.text-slate-400.text-xs.space-evenly
                       %span.mr-2
                         = fp.beds
