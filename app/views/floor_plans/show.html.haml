@@ -1,4 +1,8 @@
 .flex.flex-col
+  .flex.mb-12.text-blue-500
+    = link_to root_path do
+      = fa_icon "chevron-left"
+      All Apartments
   %h1.text-2xl= floor_plan.name
   %span.text-slate-400.text-sm.mb-2.mt-1= floor_plan.community
   .mb-2
