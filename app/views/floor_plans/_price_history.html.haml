@@ -1,5 +1,5 @@
 - sorted_price_history = price_history.sort_by(&:price)
-= content_tag("strong", "Current Price - #{format_price(sorted_price_history.first.price)}", class: "text-center")
+= content_tag("strong", "Current Price - #{format_price(current_price_data.price)}", class: "text-center")
 
 - if price_history.length > 1
   %hr.my-2

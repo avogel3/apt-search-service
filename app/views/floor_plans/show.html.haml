@@ -18,5 +18,5 @@
       %strong.text-center= formatted_lowest_price(floor_plan.price_histories)
       %hr.my-2
 
-    = render "price_history", price_history: floor_plan.price_histories
+    = render "price_history", price_history: floor_plan.price_histories, current_price_data: floor_plan.current_price_data
 
