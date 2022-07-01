@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.1'
 
 gem 'bootsnap', require: false
+gem 'chartkick'
 gem 'decent_exposure', '~> 3.0'
 gem 'font-awesome-rails'
 gem 'haml-rails'

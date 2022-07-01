@@ -31,4 +31,8 @@ module FloorPlansHelper
     low = sorted_price_history.first
     "Low - #{format_price(low.price)}"
   end
+
+  def line_chart_min(price)
+    ((price - 100) / 100) * 100
+  end
 end

@@ -13,6 +13,10 @@
 
   .flex.flex-col.border-solid.border-2.border-slate-200.border-radius.rounded.p-2
     %h2.my-2.text-lg.font-bold Price History
+
+    = line_chart floor_plan.price_histories.group(:created_at).maximum(:price), min: line_chart_min(floor_plan.price_histories.minimum(:price))
+
+    %hr.my-2
     - if floor_plan.price_histories.length > 1
       %strong.text-center= formatted_highest_price(floor_plan.price_histories)
       %strong.text-center= formatted_lowest_price(floor_plan.price_histories)
