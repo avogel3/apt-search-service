@@ -6,7 +6,7 @@ namespace :scrape do
 
     puts 'Scraping....'
 
-    # DuvallWestside::Scraper.new(target_date).call
+    DuvallWestside::Scraper.new(target_date).call
     AllisterColumbia::Scraper.new(target_date).call
   end
 

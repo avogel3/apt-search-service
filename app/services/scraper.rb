@@ -1,7 +1,7 @@
 class Scraper
   attr_reader :move_in_date
 
-  def initialize(move_in_date)
+  def initialize(move_in_date = Date.today.strftime('%m/%d/%Y'))
     @move_in_date = Date.strptime(move_in_date, '%m/%d/%Y')
   end
 
@@ -32,7 +32,7 @@ class Scraper
       end
 
       audit!(success: true)
-      puts "#{upserted.count} floor plans updated"
+      puts "#{upserted.count} floor plans updated" unless Rails.env.test?
     end
   rescue StandardError => e
     audit!(success: false)
