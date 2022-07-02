@@ -54,6 +54,6 @@ class ScrapedFloorPlan
   protected
 
   def only_digits(string_val)
-    (string_val || '').gsub(/\D+/, '')
+    (string_val || '').gsub(/\D+/, '')&.to_i
   end
 end

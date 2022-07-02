@@ -1,22 +1,22 @@
 class DuvallWestside::ScrapedFloorPlan < ScrapedFloorPlan
   def name
-    floor_plan_document.dig('name')
+    at('.card-title').text.strip
   end
 
   def price
-    floor_plan_document.dig('lowPrice')&.to_i
+    only_digits(at('.font-weight-bold.mb-1.text-md').text.strip.split(' ').find { |text| text.include?('$') })
   end
 
   def beds
-    floor_plan_document.dig('beds')&.to_i
+    only_digits(metadata.find { |d| d.include?('Bed') })
   end
 
   def baths
-    floor_plan_document.dig('baths')&.to_i
+    only_digits(metadata.find { |d| d.include?('Bath') })
   end
 
   def sq_ft
-    only_digits(floor_plan_document.dig('sqft'))
+    only_digits(metadata.find { |d| d.include?('Sq.Ft.') })
   end
 
   def community
@@ -26,6 +26,15 @@ class DuvallWestside::ScrapedFloorPlan < ScrapedFloorPlan
   alias available_at move_in_date
 
   def listing_link
-    floor_plan_document.dig('availableUnitsURL')&.gsub("location.href='", '')&.gsub("';", '')
+    path = at('a[name=applynow]')&.attributes&.dig('href')&.value
+    return unless path.present?
+
+    ['https://www.duvallwestside.com', path].join
+  end
+
+  private
+
+  def metadata
+    css('ul > li').map(&:text).map(&:strip)
   end
 end
