@@ -39,10 +39,22 @@ rake scrape:start
 
 ### Job Scheduling
 
-I'm using `whenever` to run a task that calls the scrapers. The schedule is in `config/schedule.rb`. Then you'll need to update your crontab:
+#### Production
+
+Currently runs automattically in Production
+
+#### Development
+
+Use `whenever` to run a task that calls the scrapers. The schedule is in `config/schedule.rb`. Then you'll need to update your crontab:
 
 ```sh
 bundle exec whenever --update-crontab
+```
+
+### Changelog
+
+```sh
+standard-changelog
 ```
 
 
