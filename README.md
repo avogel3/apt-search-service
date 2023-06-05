@@ -8,7 +8,7 @@ A service that checks apartment community websites for their up to date listings
 ### Install Depedencies
 
 ```sh
-asdf install ruby 3.0.1
+asdf install ruby 3.1.2
 gem install bundler
 bundle install
 ```
