@@ -7,6 +7,7 @@ gem "bootsnap", require: false
 gem "chartkick"
 gem "decent_exposure", "~> 3.0"
 gem "font-awesome-rails"
+gem "good_job"
 gem "haml-rails"
 gem "importmap-rails"
 gem "mechanize", "~> 2.8"
