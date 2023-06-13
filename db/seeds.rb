@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Community.create!(
+  name: "Drift At Town Center East",
+  floorplan_url: "https://www.driftattowncentereast.com/floorplans"
+)
